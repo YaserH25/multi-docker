@@ -10,16 +10,16 @@ script:
   - docker run -e CI=true yaser/react-test npm test
 
 after_success:
-  - docker build -t yaser/multi-client ./client
-  - docker build -t yaser/multi-nginx ./nginx
-  - docker build -t yaser/multi-server ./server
-  - docker build -t yaser/multi-worker ./worker
+  - docker build -t yaserhesham/multi-client ./client
+  - docker build -t yaserhesham/multi-nginx ./nginx
+  - docker build -t yaserhesham/multi-server ./server
+  - docker build -t yaserhesham/multi-worker ./worker
   #pushing to docker hub
   #1- logging in to docker hub
   - echo "$DOCKER_PWD" | docker login -u "$DOCKER_ID" --password-stdin
   #2- push the imgaes
-  - docker push yaser/multi-client 
-  - docker push yaser/multi-nginx 
-  - docker push yaser/multi-server 
-  - docker push yaser/multi-worker 
+  - docker push yaserhesham/multi-client 
+  - docker push yaserhesham/multi-nginx 
+  - docker push yaserhesham/multi-server 
+  - docker push yaserhesham/multi-worker 
 
